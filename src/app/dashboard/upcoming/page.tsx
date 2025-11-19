@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Plus, Calendar } from "lucide-react"
+import { Plus } from "lucide-react"
 
 export default function UpcomingPage() {
   // This would fetch actual upcoming tasks

@@ -10,7 +10,7 @@ const createTaskSchema = z.object({
   listId: z.string().optional(),
 })
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const tasks = await prisma.task.findMany({
       include: {

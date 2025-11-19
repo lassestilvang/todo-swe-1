@@ -58,7 +58,7 @@ export interface TaskLog {
   id: string
   taskId: string
   action: string
-  details?: any
+  details?: Record<string, unknown>
   createdAt: Date
 }
 
