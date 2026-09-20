@@ -94,7 +94,7 @@ export default function AllTasksPage() {
           <Card key={task.id} className={task.completed ? 'opacity-60' : ''}>
             <CardContent className="p-4">
               <div className="flex items-center space-x-4">
-                <Checkbox checked={task.completed} />
+                <Checkbox defaultChecked={task.completed} />
                 <div className="flex-1">
                   <h3 className={`font-medium ${task.completed ? 'line-through text-gray-500' : ''}`}>
                     {task.title}
