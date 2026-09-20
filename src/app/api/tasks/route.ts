@@ -38,7 +38,16 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
-    const body = await request.json()
+    let body: unknown
+    try {
+      body = await request.json()
+    } catch {
+      return NextResponse.json(
+        { error: 'Invalid JSON body' },
+        { status: 400 }
+      )
+    }
+
     const { title, description, priority, dueDate, listId } = createTaskSchema.parse(body)
 
     // For demo purposes, we'll use a default user ID
@@ -66,7 +75,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: error.errors[0].message },
+        { error: error.issues[0]?.message ?? "Invalid request" },
         { status: 400 }
       )
     }
