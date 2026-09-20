@@ -68,7 +68,7 @@ export default function UpcomingPage() {
                 <Card key={task.id}>
                   <CardContent className="p-4">
                     <div className="flex items-center space-x-4">
-                      <Checkbox checked={task.completed} />
+                      <Checkbox defaultChecked={task.completed} />
                       <div className="flex-1">
                         <h3 className="font-medium">{task.title}</h3>
                         <div className="flex items-center space-x-4 mt-1">
