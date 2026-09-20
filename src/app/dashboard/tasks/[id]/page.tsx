@@ -5,15 +5,16 @@ import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
 
 interface TaskPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function TaskPage({ params }: TaskPageProps) {
+export default async function TaskPage({ params }: TaskPageProps) {
+  const { id } = await params
   // This would fetch the actual task data
   const task = {
-    id: params.id,
+    id,
     title: "Sample Task",
     description: "This is a sample task description",
     completed: false,
@@ -68,7 +69,7 @@ export default function TaskPage({ params }: TaskPageProps) {
               <div className="space-y-3">
                 {task.subTasks.map((subTask) => (
                   <div key={subTask.id} className="flex items-center space-x-3">
-                    <Checkbox checked={subTask.completed} />
+                    <Checkbox defaultChecked={subTask.completed} />
                     <span className={subTask.completed ? 'line-through text-gray-500' : ''}>
                       {subTask.title}
                     </span>
