@@ -32,7 +32,7 @@ export default function TodayPage() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Today's Tasks</h1>
+        <h1 className="text-3xl font-bold text-gray-800">Today&apos;s Tasks</h1>
         <Button>
           <Plus className="mr-2 h-4 w-4" />
           Add Task
@@ -65,7 +65,7 @@ export default function TodayPage() {
           <Card key={task.id} className={task.completed ? 'opacity-60' : ''}>
             <CardContent className="p-6">
               <div className="flex items-center space-x-4">
-                <Checkbox checked={task.completed} />
+                <Checkbox defaultChecked={task.completed} />
                 <div className="flex-1">
                   <h3 className={`font-medium ${task.completed ? 'line-through text-gray-500' : ''}`}>
                     {task.title}
